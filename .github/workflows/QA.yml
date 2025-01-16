@@ -61,7 +61,7 @@ jobs:
     - name: Deploy second Instance
       uses: appleboy/ssh-action@v0.1.6
       with:
-        host: ${{ secrets.EC2_HOST1 }}
+        host: ${{ secrets.EC2_HOST2 }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY1 }}
         port: 22
