@@ -30,10 +30,10 @@ jobs:
     - name: Build and push Docker image
       run: |
         # Construir las imágenes con múltiples etiquetas
-        docker build . --tag diego232323a/rest-helloworld:latest 
+        docker build . --tag diego232323a/rest_helloworld:latest 
         
         # Subir ambas etiquetas al DockerHub
-        docker push diego232323a/rest-helloworld:latest
+        docker push diego232323a/rest_helloworld:latest
 
   deploy:
     name: Deploy on AWS
@@ -53,10 +53,10 @@ jobs:
           sudo yum install -y docker
           sudo service docker start
           sudo usermod -a -G docker ec2-user
-          sudo docker pull diego232323a/rest-helloworld:latest
-          sudo docker ps -q --filter "name=rest-helloworld" | grep -q . && \
-            sudo docker stop rest-helloworld && sudo docker rm rest-helloworld || true
-          sudo docker run -d --name rest-helloworld -p 80:80 diego232323a/rest-helloworld:latest
+          sudo docker pull diego232323a/rest_helloworld:latest
+          sudo docker ps -q --filter "name=rest_helloworld" | grep -q . && \
+            sudo docker stop rest_helloworld && sudo docker rm rest_helloworld || true
+          sudo docker run -d --name rest_helloworld -p 80:80 diego232323a/rest_helloworld:latest
 
     - name: Deploy second Instance
       uses: appleboy/ssh-action@v0.1.6
@@ -70,7 +70,7 @@ jobs:
           sudo yum install -y docker
           sudo service docker start
           sudo usermod -a -G docker ec2-user
-          sudo docker pull diego232323a/rest-helloworld:latest
-          sudo docker ps -q --filter "name=rest-helloworld" | grep -q . && \
-            sudo docker stop rest-helloworld && sudo docker rm rest-helloworld || true
-          sudo docker run -d --name rest-helloworld -p 80:80 diego232323a/rest-helloworld:latest
+          sudo docker pull diego232323a/rest_helloworld:latest
+          sudo docker ps -q --filter "name=rest_helloworld" | grep -q . && \
+            sudo docker stop rest_helloworld && sudo docker rm rest_helloworld || true
+          sudo docker run -d --name rest_helloworld -p 80:80 diego232323a/rest_helloworld:latest
