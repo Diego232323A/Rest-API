@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 # Ruta raíz que devuelve un mensaje de "Hola Mundo"
-@app.route('/hello', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello_world():
     return "Hola Mundo desde una REST API con Flask"
     # return jsonify({"message": "Hola Mundo desde una REST API con Flask"})
