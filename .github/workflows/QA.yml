@@ -23,7 +23,7 @@ jobs:
     - name: Build and push Docker image
       run: |
         # Construir las imágenes con múltiples etiquetas
-        docker build . --file Dockerfile --tag diego232323a/rest-helloworld:v1 
+        docker build . --file Dockerfile --tag diego232323a/rest-helloworld:v1 .
         
         # Subir ambas etiquetas al DockerHub
         docker push diego2323323a/rest-helloworld:v1
